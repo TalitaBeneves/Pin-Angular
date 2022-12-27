@@ -15,3 +15,6 @@ code-input {
   --item-font-weight: 300;
   --color: #171516;
 } */
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
