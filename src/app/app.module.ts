@@ -13,7 +13,10 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CodeInputModule } from 'angular-code-input';
 import { LOCALE_ID } from '@angular/core';
 import { MAT_DATE_LOCALE } from '@angular/material/core';
+import { registerLocaleData } from '@angular/common';
+import localePT from '@angular/common/locales/pt';
 
+registerLocaleData(localePT);
 @NgModule({
   declarations: [AppComponent],
   imports: [
@@ -32,7 +35,10 @@ import { MAT_DATE_LOCALE } from '@angular/material/core';
     FormsModule,
     ReactiveFormsModule,
   ],
-  providers: [{ provide: MAT_DATE_LOCALE, useValue: 'pt-Br' }],
+  providers: [
+    { provide: MAT_DATE_LOCALE, useValue: 'pt-Br' },
+    { provide: LOCALE_ID, useValue: 'pt-br' },
+  ],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

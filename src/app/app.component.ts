@@ -12,12 +12,16 @@ export class AppComponent implements OnInit {
   maxDate: any;
   date: any;
   valorTela: any;
+  mockData: any;
 
   constructor(private fb: FormBuilder) {}
 
   ngOnInit(): void {
     this.montaForm();
     this.minDate = new Date();
+    this.mock();
+
+    this.mockData = this.mockData[0].date
   }
 
   // this called every time when user changed the code
@@ -38,7 +42,7 @@ export class AppComponent implements OnInit {
 
   montaForm() {
     this.form = this.fb.group({
-      data: [null, Validators.required],
+      data: [new Date(), Validators.required],
     });
   }
 
@@ -51,5 +55,13 @@ export class AppComponent implements OnInit {
     } else {
       alert('Data Atual');
     }
+  }
+
+  mock() {
+    return (this.mockData = [
+      {
+        date: '11/12/2022 20:22:09',
+      },
+    ]);
   }
 }
