@@ -38,13 +38,18 @@ export class AppComponent implements OnInit {
 
   montaForm() {
     this.form = this.fb.group({
-      data: [new Date(), Validators.required],
+      data: [null, Validators.required],
     });
   }
 
   confirma() {
     this.valorTela = this.form.get('data')?.value;
-
-    console.log(this.valorTela);
+    // const dataAtual = new Date().toLocaleString();
+    if (this.valorTela > new Date()) {
+      alert('Data futura');
+      console.log(new Date().toLocaleString());
+    } else {
+      alert('Data Atual');
+    }
   }
 }
