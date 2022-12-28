@@ -40,3 +40,8 @@
     <h1>{{ mockData | date : "dd/MM/yyyy HH:mm" : "-03:00" }}</h1>
   </form>
 </div>
+
+<h1 style="text-align: center">Mascarando CPF/CNPJ</h1>
+<div class="container">
+  <h2>{{ cpfCnpj | formatCpf }}</h2>
+</div>

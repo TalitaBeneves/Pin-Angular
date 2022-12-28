@@ -13,6 +13,7 @@ export class AppComponent implements OnInit {
   date: any;
   valorTela: any;
   mockData: any;
+  cpfCnpj: string = '88973636014'; //53990172000116
 
   constructor(private fb: FormBuilder) {}
 
@@ -21,7 +22,7 @@ export class AppComponent implements OnInit {
     this.minDate = new Date();
     this.mock();
 
-    this.mockData = this.mockData[0].date
+    this.mockData = this.mockData[0].date;
   }
 
   // this called every time when user changed the code

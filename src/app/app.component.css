@@ -17,7 +17,7 @@ code-input {
 }
 
 .container {
-  background-color: yellow;
+  background-color: rgba(99, 99, 75, 0.055);
   width: 40%;
   margin: 5% auto;
 }

@@ -15,10 +15,11 @@ import { LOCALE_ID } from '@angular/core';
 import { MAT_DATE_LOCALE } from '@angular/material/core';
 import { registerLocaleData } from '@angular/common';
 import localePT from '@angular/common/locales/pt';
+import { FormatCpfPipe } from './pipe/formatCpf.pipe';
 
 registerLocaleData(localePT);
 @NgModule({
-  declarations: [AppComponent],
+  declarations: [AppComponent, FormatCpfPipe],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
