@@ -35,6 +35,7 @@ registerLocaleData(localePT);
     MatInputModule,
     FormsModule,
     ReactiveFormsModule,
+
   ],
   providers: [
     { provide: MAT_DATE_LOCALE, useValue: 'pt-Br' },

@@ -11,9 +11,15 @@
   </code-input>
 </div>
 
+<select>
+  <option *ngFor="let title of perguntas" [value]="title.tipo">
+    {{title.chave}}
+  </option>
+</select>
+
 <h2 style="text-align: center">Datepicker</h2>
 <div class="container">
-  <form [formGroup]="form">
+  <!-- <form [formGroup]="form">
     <mat-form-field class="example-full-width" appearance="fill">
       <mat-label>Choose a date</mat-label>
       <input
@@ -38,10 +44,52 @@
     <div><button (click)="confirma()">Pegar valor</button></div>
     <br />
     <h1>{{ mockData | date : "dd/MM/yyyy HH:mm" : "-03:00" }}</h1>
-  </form>
+  </form> -->
 </div>
 
 <h1 style="text-align: center">Mascarando CPF/CNPJ</h1>
 <div class="container">
   <h2>{{ cpfCnpj | formatCpf }}</h2>
+</div>
+
+<div>
+  <!-- <a (click)="getDate($event.target, 2)">CLICAR 2</a> <br>
+  <a (click)="getDate($event.target, 5)">CLICAR 5</a> <br>
+  <a (click)="getDate($event.target, 7)">CLICAR 7</a> <br>
+  <a (click)="getDate($event.target, 15)">CLICAR 15</a> <br> -->
+  <a (click)="getDate($event.target, 30)">CLICAR 30</a> <br />
+  <br />
+  <br />
+  <br />
+  <br />
+  <br />
+</div>
+
+<mat-form-field appearance="fill">
+  <mat-label>Enter a date range</mat-label>
+  <mat-date-range-input [rangePicker]="picker">
+    <form [formGroup]="form">
+      <input matStartDate placeholder="Start date" formControlName="dtInicio" />
+      <input matEndDate placeholder="End date" formControlName="dtFim" />
+    </form>
+  </mat-date-range-input>
+  <mat-hint>MM/DD/YYYY – MM/DD/YYYY</mat-hint>
+  <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+  <mat-date-range-picker #picker></mat-date-range-picker>
+</mat-form-field>
+<a (click)="obterData()">Obter Data</a>
+
+<h1>Pegando informação</h1>
+<div *ngFor="let item of perguntas">
+  <input
+    class="form-check-input"
+    type="radio"
+    id="opcoes_{{ item.tipo }}"
+    [ngModel]="selected"
+    (ngModelChange)="pegando(item.chave)"
+    [value]="item.tipo"
+    [formControl]="checked"
+  />
+
+  {{ item.chave }}
 </div>
