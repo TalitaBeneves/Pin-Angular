@@ -15,15 +15,20 @@ import { MockDataService } from './service/mockData.service';
 })
 export class AppComponent implements OnInit {
   form!: FormGroup;
-  minDate: any;
-  maxDate: any;
-  date: any;
-  valorTela: any;
-  mockData: any;
+  minDate
+  maxDate
+  date
+  valorTela
+  mockData
   cpfCnpj: string = '88973636014'; //53990172000116
-  periodo: any;
-  chave: any;
-  selected: any
+  periodo
+  chave
+  selected: any;
+  tipoCpfCnpj: any;
+  pegandoTipo: any;
+  cpf: any
+  email: any
+
   perguntas = [
     { chave: 'celular', tipo: 1 },
     { chave: 'aleatória', tipo: 3 },
@@ -41,9 +46,26 @@ export class AppComponent implements OnInit {
     this.minDate = new Date();
     this.mock();
     this.pegando();
-    // this.getDate();
+    this.teste2();
 
     this.mockData = this.mockData[0].date;
+  }
+
+  teste2() {
+    const bla = this.perguntas;
+    var tipo: any;
+
+    bla.forEach((element) => {
+      tipo = bla.find((s) => s.tipo === 0 );
+    });
+
+    if (tipo) {
+      this.cpf = true
+    }
+
+
+    this.pegandoTipo = tipo.chave;
+    console.log('a', tipo.chave);
   }
 
   pegando(e?: any) {
@@ -78,7 +100,24 @@ export class AppComponent implements OnInit {
       data: [new Date()],
       dtInicio: [null],
       dtFim: [null],
+      tipo: [null],
     });
+  }
+
+  teste() {
+    let bla = this.form.get('tipo')?.value;
+
+    if (bla.length == 11) {
+      bla = 'F';
+      return console.log(bla);
+    }
+
+    if (bla.length == 14) {
+      return (bla = 'J');
+    }
+
+    console.log('A', bla);
+    return;
   }
 
   confirma() {

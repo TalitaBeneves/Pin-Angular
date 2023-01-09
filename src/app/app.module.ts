@@ -1,3 +1,4 @@
+import { InputMaskComponent } from './components/input-mask/input-mask.component';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
@@ -16,10 +17,12 @@ import { MAT_DATE_LOCALE } from '@angular/material/core';
 import { registerLocaleData } from '@angular/common';
 import localePT from '@angular/common/locales/pt';
 import { FormatCpfPipe } from './pipe/formatCpf.pipe';
+import { NgxMaskModule } from 'ngx-mask';
+import { NgxScannerQrcodeModule } from 'ngx-scanner-qrcode';
 
 registerLocaleData(localePT);
 @NgModule({
-  declarations: [AppComponent, FormatCpfPipe],
+  declarations: [AppComponent, FormatCpfPipe, InputMaskComponent],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
@@ -34,8 +37,9 @@ registerLocaleData(localePT);
     MatFormFieldModule,
     MatInputModule,
     FormsModule,
+    NgxScannerQrcodeModule,
     ReactiveFormsModule,
-
+    NgxMaskModule.forRoot(),
   ],
   providers: [
     { provide: MAT_DATE_LOCALE, useValue: 'pt-Br' },

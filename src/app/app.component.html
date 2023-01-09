@@ -1,3 +1,26 @@
+<app-input-mask></app-input-mask>
+
+<button
+  [style.backgroundColor]="cpf ? 'gray' : '#fff'"
+  [disabled]="cpf"
+>{{ pegandoTipo }}</button>
+<button
+  [style.backgroundColor]="email ? 'gray' : '#fff'"
+  [disabled]="email"
+>{{ pegandoTipo }}</button>
+<!-- <h1>{{ pegandoTipo }}</h1> -->
+<div class="card" style="width: 18rem">
+  <img src="..." class="card-img-top" alt="..." />
+  <div class="card-body">
+    <h5 class="card-title">Card title</h5>
+    <p class="card-text">
+      Some quick example text to build on the card title and make up the bulk of
+      the card's content.
+    </p>
+    <a href="#" class="btn btn-primary">Go somewhere</a>
+  </div>
+</div>
+
 <h2 style="text-align: center">Pin in Angular 11</h2>
 <div class="container">
   <code-input
@@ -13,7 +36,7 @@
 
 <select>
   <option *ngFor="let title of perguntas" [value]="title.tipo">
-    {{title.chave}}
+    {{ title.chave }}
   </option>
 </select>
 
@@ -64,7 +87,7 @@
   <br />
   <br />
 </div>
-
+<!--
 <mat-form-field appearance="fill">
   <mat-label>Enter a date range</mat-label>
   <mat-date-range-input [rangePicker]="picker">
@@ -77,7 +100,12 @@
   <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
   <mat-date-range-picker #picker></mat-date-range-picker>
 </mat-form-field>
-<a (click)="obterData()">Obter Data</a>
+<a (click)="obterData()">Obter Data</a> -->
+
+<form [formGroup]="form">
+  <input type="text" formControlName="tipo" />
+  <button (click)="teste()">A</button>
+</form>
 
 <h1>Pegando informação</h1>
 <div *ngFor="let item of perguntas">
