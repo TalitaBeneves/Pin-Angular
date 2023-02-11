@@ -1,0 +1,38 @@
+<form [formGroup]="form">
+  <div formArrayName="forms">
+    <div *ngFor="let form of formArray.controls; index as i">
+      <div [formGroupName]="i">
+        <ng-container *ngFor="let config of formConfig">
+          <div [ngSwitch]="config.type">
+            <div *ngSwitchCase="'text'">
+              <label [for]="config.name + '_' + i">{{ config.label }}</label>
+              <input
+                [id]="config.name + '_' + i"
+                type="text"
+                formControlName="{{ config.name }}"
+              />
+            </div>
+            <div *ngSwitchCase="'select'">
+              <label [for]="config.name + '_' + i">{{ config.label }}</label>
+              <select
+                [id]="config.name + '_' + i"
+                formControlName="{{ config.name }}"
+              >
+                <option value="">Selecione uma opção</option>
+                <option
+                  *ngFor="let option of config.options"
+                  [value]="option.value"
+                >
+                  {{ option.label }}
+                </option>
+              </select>
+            </div>
+          </div>
+        </ng-container>
+        <button (click)="removeForm(i)">Remove</button>
+      </div>
+    </div>
+  </div>
+  <button (click)="addForm()">Add Form</button>
+  <button (click)="submitForm()">Submit</button>
+</form>

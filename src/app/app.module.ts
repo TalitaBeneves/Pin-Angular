@@ -1,3 +1,4 @@
+import { FormDinamicoComponent } from './components/form-dinamico/form-dinamico.component';
 import { InputMaskComponent } from './components/input-mask/input-mask.component';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
@@ -22,7 +23,7 @@ import { NgxScannerQrcodeModule } from 'ngx-scanner-qrcode';
 
 registerLocaleData(localePT);
 @NgModule({
-  declarations: [AppComponent, FormatCpfPipe, InputMaskComponent],
+  declarations: [AppComponent, FormatCpfPipe, InputMaskComponent, FormDinamicoComponent],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
