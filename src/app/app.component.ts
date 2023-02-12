@@ -1,11 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import {
-  UntypedFormBuilder,
-  UntypedFormControl,
-  Validators,
-} from '@angular/forms';
-import { ChaveTipo } from './model/filtroData';
-import { MockDataService } from './service/mockData.service';
+import { UntypedFormControl, Validators } from '@angular/forms';
+import { ChaveTipo } from './core/model/filtroData';
 
 @Component({
   selector: 'app-root',
@@ -29,10 +24,7 @@ export class AppComponent implements OnInit {
   ];
   pegaForm;
   checked = new UntypedFormControl(null, Validators.required);
-  constructor(
-    private fb: UntypedFormBuilder,
-    private mockDataService: MockDataService
-  ) {}
+  constructor() {}
 
   ngOnInit(): void {
     this.pegando();

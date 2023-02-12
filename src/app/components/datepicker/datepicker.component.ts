@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
-import { FiltroData } from 'src/app/model/filtroData';
+import { FiltroData } from 'src/app/core/model/filtroData';
 
 @Component({
   selector: 'app-datepicker',
