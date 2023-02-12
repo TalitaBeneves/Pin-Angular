@@ -1,5 +1,5 @@
 import { AfterViewInit, Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { FormBuilder, UntypedFormGroup } from '@angular/forms';
 import { BaseConfig, ScannerQRCodeResult, NgxScannerQrcodeService } from 'ngx-scanner-qrcode';
 import Instascan from 'instascan';
 declare var Instascan: any;
@@ -26,7 +26,7 @@ export class InputMaskComponent implements OnInit, AfterViewInit{
       console.error(e);
     });
   }
-  form!: FormGroup;
+  form!: UntypedFormGroup;
   cpf_cnpj: any;
 
   // constructor(private fb: FormBuilder) {}

@@ -1,4 +1,10 @@
-import { Component, OnInit, AfterViewInit } from '@angular/core';
+import {
+  Component,
+  OnInit,
+  AfterViewInit,
+  Output,
+  EventEmitter,
+} from '@angular/core';
 import { FormGroup, FormBuilder, FormArray, Validators } from '@angular/forms';
 
 @Component({
@@ -7,6 +13,7 @@ import { FormGroup, FormBuilder, FormArray, Validators } from '@angular/forms';
   styleUrls: ['./form-dinamico.component.css'],
 })
 export class FormDinamicoComponent implements OnInit {
+  @Output() envForm = new EventEmitter();
   formConfig = [
     {
       type: 'text',
@@ -34,6 +41,10 @@ export class FormDinamicoComponent implements OnInit {
     this.form = this.fb.group({
       forms: this.fb.array([this.createForm()]),
     });
+
+    this.form.valueChanges.subscribe((res) => {
+      this.envForm.emit(this.formArray.value)
+    })
   }
 
   get formArray(): FormArray {

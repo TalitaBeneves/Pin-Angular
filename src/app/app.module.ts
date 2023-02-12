@@ -20,10 +20,12 @@ import localePT from '@angular/common/locales/pt';
 import { FormatCpfPipe } from './pipe/formatCpf.pipe';
 import { NgxMaskModule } from 'ngx-mask';
 import { NgxScannerQrcodeModule } from 'ngx-scanner-qrcode';
+import { PinAngularComponent } from './components/pin-angular/pin-angular.component';
+import { DatepickerComponent } from './components/datepicker/datepicker.component';
 
 registerLocaleData(localePT);
 @NgModule({
-  declarations: [AppComponent, FormatCpfPipe, InputMaskComponent, FormDinamicoComponent],
+  declarations: [AppComponent, FormatCpfPipe, InputMaskComponent, FormDinamicoComponent, PinAngularComponent, DatepickerComponent],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,

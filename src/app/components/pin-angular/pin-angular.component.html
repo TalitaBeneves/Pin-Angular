@@ -1,0 +1,12 @@
+<h2 style="text-align: center">Pin in Angular 11</h2>
+<div class="container">
+  <code-input
+    [isCodeHidden]="false"
+    [isNonDigitsCode]="false"
+    [codeLength]="6"
+    (codeChanged)="onCodeChanged($event)"
+    (codeCompleted)="onCodeCompleted($event)"
+    [isPrevFocusableAfterClearing]="false"
+  >
+  </code-input>
+</div>
