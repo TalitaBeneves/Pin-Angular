@@ -1,8 +1,8 @@
 <form [formGroup]="form">
   <div formArrayName="forms">
     <div *ngFor="let form of formArray.controls; index as i">
-      <div [formGroupName]="i">
-        <ng-container *ngFor="let config of formConfig">
+      <div [formGroupName]="i" *ngIf="i > 0" >
+        <ng-container *ngFor="let config of formConfig" >
           <div [ngSwitch]="config.type">
             <div *ngSwitchCase="'text'">
               <label [for]="config.name + '_' + i">{{ config.label }}</label>

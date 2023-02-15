@@ -35,7 +35,8 @@ export class FormDinamicoComponent implements OnInit {
     },
   ];
   form: FormGroup;
-
+  items = [{ name: 'John', email: 'john@example.com' }, { name: 'Jane', email: 'jane@example.com' }];
+  
   constructor(private fb: FormBuilder) {}
   ngOnInit(): void {
     this.form = this.fb.group({
@@ -43,8 +44,8 @@ export class FormDinamicoComponent implements OnInit {
     });
 
     this.form.valueChanges.subscribe((res) => {
-      this.envForm.emit(this.formArray.value)
-    })
+      this.envForm.emit(this.formArray.value);
+    });
   }
 
   get formArray(): FormArray {
@@ -59,6 +60,15 @@ export class FormDinamicoComponent implements OnInit {
     return this.fb.group(formControls);
   }
 
+  teste() {
+    const formArray = this.form.get('forms') as FormArray;
+
+    this.items.forEach((item, index) => {
+      const formGroup = formArray.controls[index] as FormGroup;
+      formGroup.controls['name'].setValue(item.name);
+      formGroup.controls['email'].setValue(item.email);
+    });
+  }
   addForm(): void {
     this.formArray.push(this.createForm());
   }

@@ -17,15 +17,16 @@ import { LOCALE_ID } from '@angular/core';
 import { MAT_DATE_LOCALE } from '@angular/material/core';
 import { registerLocaleData } from '@angular/common';
 import localePT from '@angular/common/locales/pt';
-import { FormatCpfPipe } from './pipe/formatCpf.pipe';
 import { NgxMaskModule } from 'ngx-mask';
 import { NgxScannerQrcodeModule } from 'ngx-scanner-qrcode';
 import { PinAngularComponent } from './components/pin-angular/pin-angular.component';
 import { DatepickerComponent } from './components/datepicker/datepicker.component';
+import { FormatCpfPipe } from './core/pipe/formatCpf.pipe';
+import { AnimatedCheckmarkComponent } from './components/animated-checkmark/animated-checkmark.component';
 
 registerLocaleData(localePT);
 @NgModule({
-  declarations: [AppComponent, FormatCpfPipe, InputMaskComponent, FormDinamicoComponent, PinAngularComponent, DatepickerComponent],
+  declarations: [AppComponent, InputMaskComponent, FormDinamicoComponent, PinAngularComponent, AnimatedCheckmarkComponent,DatepickerComponent, FormatCpfPipe],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
